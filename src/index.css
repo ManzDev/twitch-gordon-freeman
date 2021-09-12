@@ -1,0 +1,476 @@
+/* Original author: Samuel Markiewicz
+   https://dribbble.com/shots/1945191-Gordon-Freeman-Half-Life-suit-icon
+*/
+
+:root {
+  background-color: #e4c6a3;
+
+  --hair-color: #821A06;
+  --hair-gradient-color: linear-gradient(to top, #5D0F07 40%, #bb3618 80%);
+  --orange-color: #e94916;
+  --grey-dark-color: #363D38;
+  --metal-gradient-color: linear-gradient(to top, #323634, #868d8f);
+  --skin-color: #f19768;
+  --skin-shadow-color: #ca7a4f;
+
+  --beard-shape: polygon(10% 10%, 50% 0, 90% 10%, 100% 45%, 70% 100%, 30% 100%, 0 45%);
+  --beard-inner-shape: polygon(0 20%, 50% 0, 100% 20%, 100% 70%, 70% 100%, 70% 70%, 30% 70%, 30% 100%, 0 70%);
+}
+
+body {
+  margin: 0;
+  background: var(--background-color);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.gordon-freeman {
+
+  & .head-container {
+    width: 350px;
+    height: 80px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: 5;
+    transform: translateY(40px);
+
+    & .head-shape {
+      width: 60px;
+      height: 80px;
+      background: var(--skin-color);
+      background-image:
+        linear-gradient(172deg, var(--skin-shadow-color) 60%, var(--skin-color) 61%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      clip-path: polygon(-25% -38.75%, 125% -38.75%, 100% 70%, 89.99% 83.77%, 71.66% 100%, 30% 100%, 9.12% 84.37%, 0px 70%);
+      position: absolute;
+    }
+
+    & .head {
+      width: 60px;
+      height: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      & .hair {
+        width: calc(100% + 10px);
+        height: 160px;
+        background: var(--hair-gradient-color);
+        transform: translate(2px, -30px);
+        clip-path: polygon(0px 31%, 9% 31%, 7.91% 17.15%, 18.7% 18.2%, 65.58% 0.03%, 65.62% 7px, 88.4% 18.6%, 86.77% 31.85%, 98.93% 48.52%, 98.44% 62.11%, 90.46% 71.28%, 78.08% 60.6%, 64.36% 68.03%, 54.57% 59.25%, 41.50% 70.60%, 34.19% 49.08%, 9.32% 77.26%, 1px 103.03%);
+      }
+
+      & .glasses-container {
+        width: 58px;
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(32px);
+
+        & .crystal {
+          width: 24px;
+          height: 12px;
+          border: 2px solid #111;
+          border-radius: 10px;
+          background: linear-gradient(160deg, #F4E9D7 40%, #D9A29E 45%);
+          position: relative;
+          z-index: 1;
+        }
+
+        & .union {
+          width: 20px;
+          height: 6px;
+          background: #000000;
+          position: absolute;
+          left: 35%;
+        }
+      }
+
+      & .beard {
+        width: 32px;
+        height: 27px;
+        background: var(--hair-color);
+        transform: translateY(7px) scale(1.1);
+        clip-path: var(--beard-shape);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: 0;
+
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          background: var(--skin-color);
+          width: 18px;
+          height: 15px;
+          clip-path: var(--beard-inner-shape);
+        }
+      }
+    }
+  }
+
+  & .body-container {
+    width: 350px;
+    height: 215px;
+    background: linear-gradient(to top, #333, black);
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    & .arm-container {
+
+      &.left {
+        position: absolute;
+        transform: translate(-120px, 60px);
+      }
+
+      & .forearm-container {
+        width: 60px;
+        height: 175px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform: translate(20px, 0px);
+
+        & .shoulder {
+          width: 60px;
+          height: 30px;
+          background: #393E3F;
+          position: relative;
+          z-index: 2;
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+          transform: rotate(44deg) translate(10px, -8px);
+        }
+
+        & .forearm-shoulder {
+          width: 40px;
+          height: 30px;
+          background: #575757;
+          transform: rotate(15deg) translate(5px, -10px);
+        }
+
+        & .elbow {
+          width: 50px;
+          height: 60px;
+          background: #393E3F;
+          position: relative;
+          z-index: 2;
+          clip-path: polygon(0px 0px, 100.00% 12px, 100% 100%, 11px 101.67%, 0% 48.33%);
+          transform: rotate(14deg) translate(-7px, -20px);
+        }
+
+        & .forearm-elbow {
+          width: 36px;
+          height: 50px;
+          background: #575757;
+          transform: translate(-4px, -30px);
+          clip-path: polygon(8px 1px, 90.63% 1px, 100% 59.63%, 100% 100%, 3px 100.00%, 0% 38.39%);
+        }
+      }
+
+      & .hand-container {
+        width: 55px;
+        height: 125px;
+        background: linear-gradient(to bottom, black 40%, darkred 70%);
+        transform: translate(20px, -45px);
+        clip-path: polygon(7px 0px, 87.27% 5px, 62.21% 62.35%, 100.24% 77.43%, 92.72% 91.2%, 45.51% 98.22%, 14px 88%, 18.72% 61.79%);
+      }
+
+      & .crowbar-back {
+        width: 12px;
+        height: 60px;
+        background: linear-gradient(#555 30%, red 38%);
+        position: absolute;
+        transform: translate(60px, -10px) rotate(15deg);
+        clip-path: polygon(4px 1px, 96.31% 1px, 100% 100%, -2px 100%);
+      }
+
+      & .crowbar-front {
+        width: 12px;
+        height: 95px;
+        background: linear-gradient(red 50%, #555 68%);
+        position: absolute;
+        transform: translate(36px, -74px) rotate(18deg);
+        clip-path: polygon(0px 0px, 100% 6px, 100% 100%, -5px 102.52%);
+      }
+
+      & .crowbar-curve {
+        position: absolute;
+        width: 20px;
+        height: 30px;
+        border: 12px solid #555;
+        border-right: 0;
+        border-top: 0;
+        border-radius: 50%;
+        transform: translate(21px, 4px);
+        z-index: 1;
+      }
+
+      & .crowbar-curve-end {
+        transform: translate(38px, 23px) rotate(63deg);
+        border-right: 9px solid transparent;
+        border-bottom: 23px solid #555;
+        width: 0;
+        height: 0;
+      }
+
+      &.right {
+        position: absolute;
+        transform: translate(120px, 60px) scaleX(-1);
+
+        & .hand-container {
+          transform: translate(21px, -50px) scaleX(-1);
+          clip-path: polygon(7px 7px, 90.91% 0px, 74.1% 50.28%, 98.6% 68.6%, 100.00% 84.00%, 65.65% 77.38%, 64.09% 68.94%, 39.92% 61.98%, 1px 78.4%, 1.63% 67.89%, 21.05% 51.1%);
+        }
+
+        & .headcrab-container {
+          width: 75px;
+          height: 75px;
+          position: absolute;
+          transform: translate(15px, -100px) scale(1.1);
+          display: flex;
+          justify-content: center;
+
+          & .headcrab-head {
+            width: 60px;
+            height: 45px;
+            background: linear-gradient(to bottom, #734D3A 30%, #997558 75%);
+            clip-path: polygon(0px 16px, 41.29% 1.03%, 72.51% 18.44%, 71.64% 43.41%, 98.33% 28px, 96.66% 86.67%, 49.18% 100.11%, 0px 80.00%);
+            transform: scaleX(-1);
+          }
+
+          & .tooth {
+            display: flex;
+            position: absolute;
+            transform: translate(2px, 40px);
+
+
+            & .teeth {
+              width: 5px;
+              height: 6px;
+              background: red;
+              transform: translate(0, var(--y));
+              clip-path: polygon(0 0, 100% 0, 50% 100%);
+
+              &:nth-child(1) {
+                --y: 0;
+              }
+
+              &:nth-child(2) {
+                --y: 2px;
+              }
+
+              &:nth-child(3) {
+                --y: 3px;
+              }
+
+              &:nth-child(4) {
+                --y: 2px;
+              }
+
+              &:nth-child(5) {
+                --y: 0;
+              }
+
+              &:nth-child(6) {
+                --y: -1px;
+              }
+            }
+          }
+
+          & .headcrab-mandibles {
+            width: 20px;
+            height: 40px;
+            background: linear-gradient(to top, #C92110 70%, #997558 71%);
+            position: absolute;
+            bottom: 0;
+            left: 10px;
+            clip-path: polygon(0px 0px, 45% 0px, 75.00% 52.50%, 0% 100%, 40% 55%);
+            transform: scaleX(-1);
+
+            &.right {
+              left: auto;
+              right: 10px;
+              clip-path: polygon(5px 0px, 60% 0px, 50.00% 50.00%, 90% 100%, 14.12% 56.03%);
+              transform: scaleX(-1);
+            }
+          }
+        }
+      }
+    }
+
+    & .body-top-container {
+      width: 200px;
+      height: 215px;
+      background: var(--grey-dark-color);
+      clip-path: polygon(-1px 40px, 17.67% 13.02%, 24.17% 6.51%, 49.67% 0%, 70.17% 6.05%, 77.17% 12.56%, 100.5% 39px, 78.18% 72.57%, 79.50% 99.53%, 33px 100%, 18.27% 72.56%);
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+
+      & .left,
+      & .right {
+        display: flex;
+        position: relative;
+        z-index: 4;
+      }
+
+      & .external {
+        background: var(--metal-gradient-color);
+        width: 50px;
+        height: 160px;
+        transform: rotate(-14deg);
+        clip-path: polygon(0px 0px, 100% 0px, 91.97% 93.03%, 22.04% 100%, 0px 100%);
+      }
+
+      & .right .external {
+        width: 52px;
+        background: var(--metal-gradient-color);
+        transform: rotate(6deg);
+        clip-path: polygon(0px 0px, 100% 0px, 100% 100%, -9px 89.66%);
+      }
+
+      & .internal {
+        width: 12px;
+        height: 130px;
+        transform: rotate(-18deg);
+        border-right: 2px solid var(--orange-color);
+      }
+
+      & .right .internal {
+        width: 13px;
+        transform: rotate(8deg);
+        border-left: 2px solid var(--orange-color);
+        border-right: 0;
+      }
+
+      & .logo-container {
+        width: 78px;
+        height: 60px;
+        background:
+          linear-gradient(176deg, #FCAF78 10%, transparent 12%),
+          linear-gradient(to top, #F15911, #F87E1A);
+        z-index: 5;
+        clip-path: polygon(10% 0, 90% 0, 100% 100%, 0 100%);
+        position: absolute;
+        left: 31%;
+        top: 38%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & .logo {
+          width: 32px;
+          height: 32px;
+          border: 3px solid #FCBA27;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          & .lambda {
+            width: 5px;
+            height: 16px;
+            border: 4px solid #FCBA27;
+            border-right: 0;
+            border-top: 0;
+            position: relative;
+            transform: rotate(-18deg) translate(5px, 0);
+
+            &::before {
+              content: "";
+              display: block;
+              position: absolute;
+              height: 4px;
+              background: #fcba27;
+              width: 7px;
+              transform: rotate(18deg) translate(-8px, 1px);
+            }
+
+            &::after {
+              content: "";
+              display: block;
+              position: absolute;
+              height: 15px;
+              background: #fcba27;
+
+              width: 4px;
+              transform: rotate(54deg) translate(-3px, 10px);
+            }
+          }
+        }
+      }
+
+      & .waist {
+        width: 155px;
+        height: 70px;
+        position: absolute;
+        bottom: 0;
+        left: 12%;
+        display: flex;
+        justify-content: space-between;
+        background: linear-gradient(to bottom, #131616, #6e8181);
+
+        & .left {
+          transform: rotate(-20deg) translate(4px);
+        }
+
+        & .right {
+          transform: rotate(20deg) translate(-4px, 4px);
+        }
+
+        & .left,
+        & .right {
+          display: flex;
+          flex-direction: column;
+        }
+
+        & .belt {
+          width: 45px;
+          height: 18px;
+          background: #F87829;
+          margin: 1px 0;
+        }
+
+        &>.shapes {
+          position: absolute;
+          width: 100%;
+          height: 70px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        & .top-shape {
+          width: 65%;
+          height: 50px;
+          border-bottom: 2px solid black;
+          border-radius: 0 0 75px 75px / 0 0 225px 225px;
+        }
+
+        & .bottom-shape {
+          width: 100%;
+          padding-top: 5px;
+          border-bottom: 2px solid black;
+          box-shadow:
+            0 2px 0 #545d64,
+            0 4px 0 black,
+            0 6px 0 #545d64,
+            0 8px 0 black;
+        }
+      }
+
+    }
+  }
+
+}
